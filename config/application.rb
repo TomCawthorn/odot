@@ -21,5 +21,6 @@ module Odot
     # config.i18n.default_locale = :de
     I18n.enforce_available_locales = false
     config.action_mailer.preview_path = "#{Rails.root}/spec/mailers/mailer_previews"
+    config.assets.precompile += %w( vendor/modernizr.js )
   end
 end
