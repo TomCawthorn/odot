@@ -18,7 +18,7 @@ describe "Logging In" do
     fill_in "Password", with: "incorrect"
     click_button "Log In"
 
-    expect(page).to have_content("please check your email and password")
+    expect(page).to have_content("Please check your email and password")
     expect(page).to have_field("Email Address", with: "jason@teamtreehouse.com")
   end
 end
