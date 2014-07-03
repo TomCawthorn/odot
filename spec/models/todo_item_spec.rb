@@ -16,6 +16,21 @@ describe TodoItem do
             
            todo_item.completed_at =Time.now
            expect(todo_item.completed?).to be_true
-        end        
+        end     
+    end
+  
+    describe "#toggle_completion!" do
+      let(:todo_item) { create(:todo_item) }
+      it "updates the completed_at attribute tot he current time of nil" do
+        todo_item.update_attribute(:completed_at, nil)
+        expect{ todo_item.toggle_completion! }.to change{ todo_item.completed_at }
+        expect(todo_item.completed_at).to be_an_instance_of(ActiveSupport::TimeWithZone)
+      end
+      
+      it "updates completed_at to be nil if set" do
+        todo_item.update_attribute(:completed_at, Time.now)
+        expect{ todo_item.toggle_completion! }.to change{ todo_item.completed_at }
+        expect( todo_item.completed_at ).to be_nil
+      end
     end
 end
