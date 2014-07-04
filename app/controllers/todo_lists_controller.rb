@@ -65,7 +65,7 @@ class TodoListsController < ApplicationController
 
   private
 		def set_back_link
-			go_back_link todo_lists_path
+			go_back_link_to todo_lists_path
 		end
     # Use callbacks to share common setup or constraints between actions.
     def set_todo_list

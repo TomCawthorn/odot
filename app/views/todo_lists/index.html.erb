@@ -1,6 +1,6 @@
+<% title "Todo Lists" %>
+
 <h2 class="page-title">Todo Lists</h2>
-
-
 <ul class="todo-lists no-bullet">
 <% @todo_lists.each do |todo_list| %>
   <li id="<%= dom_id(todo_list) %>" class="clearfix">
