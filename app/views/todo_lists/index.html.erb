@@ -1,7 +1,7 @@
 <% title "Todo Lists" %>
 
 <h2 class="page-title">Todo Lists</h2>
-<ul class="todo-lists no-bullet">
+<ul class="todo-lists list no-bullet">
 <% @todo_lists.each do |todo_list| %>
   <li id="<%= dom_id(todo_list) %>" class="clearfix">
     <%= link_to todo_list_todo_items_path(todo_list), class: "row" do %>
