@@ -1,7 +1,5 @@
-<% title "Add a todo item" %>
-<h2><%= @todo_list.title %> - Add Todo list item</h2>
+<%= title "Add Item to #{@todo_list.title}" %>
+
 <%= form_for [@todo_list, @todo_item] do |form| %>
-
-<%= render partial: form %>
-
+  <%= render partial: form %>
 <% end %>
