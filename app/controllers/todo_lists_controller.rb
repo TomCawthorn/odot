@@ -25,10 +25,10 @@ class TodoListsController < ApplicationController
 
     respond_to do |format|
       if @todo_list.save
-        format.html { redirect_to todo_list_todo_items_path(@todo_list), notice: 'Todo list was successfully created.' }
+        format.html { redirect_to todo_list_todo_items_path(@todo_list), success: 'Todo list was successfully created.' }
         format.json { render action: 'show', status: :created, location: @todo_list }
       else
-        format.html { render action: 'new' }
+        format.html { render action: 'new', error: "Todo list could not be created."}
         format.json { render json: @todo_list.errors, status: :unprocessable_entity }
       end
     end
@@ -39,10 +39,10 @@ class TodoListsController < ApplicationController
   def update
     respond_to do |format|
       if @todo_list.update(todo_list_params)
-        format.html { redirect_to todo_list_todo_items_path(@todo_list), notice: 'Todo list was successfully updated.' }
+        format.html { redirect_to todo_list_todo_items_path(@todo_list), success: 'Todo list was successfully updated.' }
         format.json { head :no_content }
       else
-        format.html { render action: 'edit' }
+        format.html { render action: 'edit', error: "Todo list could not be updated." }
         format.json { render json: @todo_list.errors, status: :unprocessable_entity }
       end
     end
@@ -64,7 +64,7 @@ class TodoListsController < ApplicationController
     if notifier.deliver
       redirect_to todo_list_todo_items_path(@todo_list), success: "Todo list sent."
     else
-      redirect_to todo_list_todo_items_path(@todo_list), failure: "Todo list could not be sent."
+      redirect_to todo_list_todo_items_path(@todo_list), error: "Todo list could not be sent."
     end
   end
 
