@@ -17,6 +17,7 @@ class UsersController < ApplicationController
 
     respond_to do |format|
       if @user.save
+        @user.create_default_lists
         session[:user_id] = @user.id
         flash[:success] = 'Thanks for signing up!'
         format.html { redirect_to todo_lists_path, success: 'Thanks for signing up!' }
