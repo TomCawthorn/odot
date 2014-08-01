@@ -1,5 +1,11 @@
 class UserSessionsController < ApplicationController
+
   def new
+
+    if logged_in?
+      redirect_to todo_lists_path, info: "You are already logged in."
+    end
+
   end
 
   def create
@@ -7,7 +13,7 @@ class UserSessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       if params[:remember_me]
         signed_token = Rails.application.message_verifier(:remember_me).generate(user.id)
-      cookies.permanent.signed[:remember_me_token] = signed_token
+        cookies.permanent.signed[:remember_me_token] = signed_token
       end
       session[:user_id] = user.id
       flash[:success] = "Thanks for logging in!"
