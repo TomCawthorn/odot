@@ -40,7 +40,18 @@
 	}
 }
 
+.fa-caret-down, .fa-caret-up {
+	color: white;
+	padding-top:20px;
+}
 
+.todo-list-title {
+	background: $orange;
+}
+
+.todo-list-title h2 {
+	margin:0;
+}
 
 
 
