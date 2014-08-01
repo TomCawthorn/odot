@@ -8,7 +8,7 @@ describe "Signing up" do
         
         visit "/"
         expect(page).to have_content("Sign Up")
-        within("header") { click_link "Sign Up" }
+        within(".hero") { click_link "Sign Up" }
         
         fill_in "First Name", with: "Tom"
         fill_in "Last Name", with: "Cawthorn"
@@ -25,7 +25,7 @@ describe "Signing up" do
         
         visit "/"
         expect(page).to have_content("Sign Up")
-        within("header") { click_link "Sign Up" }
+        within(".hero") { click_link "Sign Up" }
         
         
         fill_in "First Name", with: "Tom"

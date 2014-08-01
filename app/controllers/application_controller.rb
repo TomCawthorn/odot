@@ -5,16 +5,9 @@ class ApplicationController < ActionController::Base
   add_flash_types :success, :failure
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActiveSupport::MessageVerifier::InvalidSignature, with: :render_error
-  #before_action :set_a_flash_message
 
 
   private
-  def set_a_flash_message
-    #flash.now[:success] = "This is a great success"
-    #flash.now[:notice] = "Notice me"
-    #flash.now[:error] = "Error!"
-  end
-
 	def go_back_link_to(path)
 		@go_back_link_to ||= path
 		@go_back_link_to
