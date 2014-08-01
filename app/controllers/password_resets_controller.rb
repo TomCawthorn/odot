@@ -28,8 +28,9 @@ class PasswordResetsController < ApplicationController
       @user = User.find_by(password_reset_token: params[:id])
       if @user && @user.update_attributes(user_params)
           @user.update_attribute(:password_reset_token, nil)
-          session[:user_id] = @user.id
-          redirect_to todo_lists_path, success: "Password updated."
+          #session[:user_id] = @user.id
+          #redirect_to todo_lists_path, success: "Password updated."
+          redirect_to login_path, success: "Password updated. Login with your new password."
       else
         flash.now[:notice] = "Password reset token not found"  
         render action: 'edit'
