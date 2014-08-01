@@ -14,6 +14,8 @@ Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
 ActiveRecord::Migration.check_pending! if defined?(ActiveRecord::Migration)
 
 RSpec.configure do |config|
+  config.infer_spec_type_from_file_location!  
+  config.expose_current_running_example_as :example  
   config.include TodoListHelpers, type: :feature
   config.include RailsDomIdHelper, type: :feature
   config.include FactoryGirl::Syntax::Methods
