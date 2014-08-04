@@ -3,7 +3,7 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.0'
 gem 'bcrypt-ruby','~> 3.1.2'
-gem 'sqlite3'
+gem 'pg'
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
@@ -14,6 +14,10 @@ gem 'jbuilder', '~> 1.2'
 gem 'foundation-rails', '~> 5.2.2'
 gem 'font-awesome-rails', '~> 4.1.0.0'
 
+
+group :production do
+  gem 'rails_12factor', '~> 0.0.2'
+end
 
 group :development do
   gem 'spring'
